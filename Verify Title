@@ -1,0 +1,30 @@
+package Assignment17072022;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class AssQ8Custom 
+{
+	public static void main(String[] args) throws InterruptedException 
+	{
+		System.setProperty("webdriver.chrome.driver","./software/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.facebook.com/signup");
+		
+		WebElement element = driver.findElement(By.xpath("//label[text()='Custom']"
+												+ "/following-sibling::input[@type='radio']"));
+		
+		Thread.sleep(3000);
+		element.click();
+		if(element.isSelected())
+		{
+			System.out.println("Pass Verified : True");
+		}
+		else
+		{
+			System.out.println("Fail Not Verified : False");
+		}
+	}
+}
